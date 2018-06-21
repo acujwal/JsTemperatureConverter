@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+
+    <title>Temperature Converter</title>
+</head>
+<body>
+<div class="container jumbotron">
+    <!-----------------------------image box---------------------->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <img id="image" class="card-img-top" src="img/image.jpg" alt="IMAGE"><br/><br>
+        </div>
+
+    </div>
+    <!----------------------clacuation box --------------->
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <h3>Calulate Fahrenheit to Celcius</h3>
+            <form>
+
+
+                Fahrenheit: <input type="text" size="25" name="fahrenheit" id="fahrenheit"><br/><br>
+
+                <input type="button" value="Calculate" onclick="farTemp(this.form)">
+
+            </form>
+            <p id="f"></p>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <h3>Calculate Celcius to Fahrenheit</h3>
+            <form>
+
+                Celcius: <input type="text" size="25" name="fahrenheit" id="celcius"><br/><br>
+
+                <input type="button" value="Calculate" onclick="celTemp(this.form)">
+
+            </form>
+            <p id="c"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-----------------------JS calculation---------------------------->
+
+<script type="text/javascript">
+    function farTemp(form) {
+
+        var far = document.getElementById("fahrenheit").value;
+        var celc = (5 / 9) * (far - 32);
+
+        if (celc > 25) {
+            document.getElementById("image").src = "img/summer.jpg";
+            document.getElementById("f").innerHTML = "It summer";
+        }
+        else {
+            document.getElementById("image").src = "img/winter.jpeg";
+            document.getElementById("f").innerHTML = " Its winter";
+        }
+    }
+
+    function celTemp(form) {
+
+        var celci = document.getElementById("celcius").value;
+        var farh = celci * (9 / 5) + 32;
+
+        if (farh > 70) {
+            document.getElementById("image").src = "img/summer.jpg";
+            document.getElementById("c").innerHTML = "It summer";
+        }
+        else {
+            document.getElementById("image").src = "img/winter.jpeg";
+            document.getElementById("c").innerHTML = "It winter";
+        }
+    }
+</script>
+
+</body>
+</html>
